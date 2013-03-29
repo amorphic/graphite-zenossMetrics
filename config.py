@@ -1,13 +1,14 @@
 # root directory of Zenoss metric RRD files
 # this should be an nfs mount to /opt/zenoss/perf/Devices on the Zenoss server
-zenossPerfDir = '/mnt/zenossPerf'
+zenossRoot = '/mnt/zenossPerf'
 
-# root path of Zenoss metrics in Graphite
-graphiteRoot = 'zenoss.devices'
+# root path of Zenoss metrics
+#graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
+graphiteRoot = '/home/james/gztest'
 
 # regexes to match Zenoss Linux server device names
 devicePatterns = [
-    '.*'
+    '.*woy.amorphicdestiny.com'
 ]
 
 # map of Graphite metric paths to Zenoss metric RRD files
@@ -35,3 +36,4 @@ metricMap = {
         'writes'    :   'ssIORawSent_ssIORawSent.rrd'
     }
 }
+
