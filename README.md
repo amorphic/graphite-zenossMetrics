@@ -43,6 +43,6 @@ Usage
 
 Once configuration is complete, simply run graphite-zenossMetrics.py with Python:
 
-'''>python graphite-zenossMetrics.py'''
+    >python graphite-zenossMetrics.py
 
 To keep your symlinks up to date, create a cron job to run this regularly. Any new devices will be added and any devices no longer in Zenoss will be removed.
