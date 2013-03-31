@@ -7,7 +7,7 @@ graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
 
 # regexes to match Zenoss Linux server device names
 devicePatterns = [
-    '.*woy.amorphicdestiny.com'
+    '.*'
 ]
 
 # map of Graphite metric paths to Zenoss metric RRD files
