@@ -22,27 +22,21 @@ Configuration is set in [config.py](https://github.com/jstewart101/graphite-zeno
 
 Set zenossRoot to the location of the Zenoss performance data NFS mount:
 
-'''
-# root directory of Zenoss metric RRD files
-# this should be an nfs mount to /opt/zenoss/perf on the Zenoss server
-zenossRoot = '/mnt/zenossPerf'
-'''
+    # root directory of Zenoss metric RRD files
+    # this should be an nfs mount to /opt/zenoss/perf on the Zenoss server
+    zenossRoot = '/mnt/zenossPerf'
 
 Set graphiteRoot to the location under which the Zenoss metrics will be symlinked:
 
-'''
-# root path of Zenoss metrics
-graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
-'''
+    # root path of Zenoss metrics
+    graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
 
 Add regexes that match the hostnames of the Linux devices whose metrics you wish to symlink to:
 
-'''
-# regexes to match Zenoss Linux server device names
-devicePatterns = [
-    '.*'
-]
-'''
+    # regexes to match Zenoss Linux server device names
+    devicePatterns = [
+        '.*'
+    ]
 
 Usage
 ----------------------
