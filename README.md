@@ -7,7 +7,7 @@ Zenoss is a unified monitoring solution, available in Enterprise and Open Source
 
 Graphite natively supports rrd. By symlinking to Zenoss rrd files from a Graphite server, Graphite's powerful visualisation, analytics and dashboarding may be applied to Zenoss metrics for free.
 
-*Note: graphite-zenossMetrics is currently designed to symlink metrics for Linux servers. However adding Windows, Network and other devices would be trivial.
+*Note: graphite-zenossMetrics is currently designed to symlink metrics for Linux servers. However adding Windows, Network and other devices would be trivial.*
 
 Requirements
 ----------------------
@@ -18,7 +18,7 @@ Requirements
 Configuration
 ----------------------
 
-Configuration is set in config.py.
+Configuration is set in [config.py](https://github.com/jstewart101/graphite-zenossMetrics/blob/master/config.py).
 
 Set zenossRoot to the location of the Zenoss performance data NFS mount:
 
