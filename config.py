@@ -3,8 +3,7 @@
 zenossRoot = '/mnt/zenossPerf'
 
 # root path of Zenoss metrics
-#graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
-graphiteRoot = '/home/james/gztest'
+graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
 
 # regexes to match Zenoss Linux server device names
 devicePatterns = [
