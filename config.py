@@ -1,5 +1,5 @@
 # root directory of Zenoss metric RRD files
-# this should be an nfs mount to /opt/zenoss/perf/Devices on the Zenoss server
+# this should be an nfs mount to /opt/zenoss/perf on the Zenoss server
 zenossRoot = '/mnt/zenossPerf'
 
 # root path of Zenoss metrics
