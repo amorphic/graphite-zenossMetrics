@@ -57,7 +57,7 @@ def main():
                     os.mkdir(linkNameMetricGroupPath)
                 for metric, zenossRrd in metrics.iteritems():
                     # ultimate symlink name
-                    symlinkName = sanitizePath(os.path.join(linkNameMetricGroupPath, metric))
+                    symlinkName = sanitizePath(os.path.join(linkNameMetricGroupPath, metric)) + '.rrd'
                     # ultimate symlink target
                     symlinkTarget = os.path.join(linkTargetDevicePath, zenossRrd)
                     # create symlink
