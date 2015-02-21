@@ -24,12 +24,12 @@ Set zenossRoot to the location of the Zenoss performance data NFS mount:
 
     # root directory of Zenoss metric RRD files
     # this should be an nfs mount to /opt/zenoss/perf on the Zenoss server
-    zenossRoot = '/mnt/zenossPerf'
+    zenossRoot = '/mnt/nfs/zenossrrd/perf'
 
 Set graphiteRoot to the location under which the Zenoss metrics will be symlinked:
 
     # root path of Zenoss metrics
-    graphiteRoot = '/opt/grahite/storage/rrd/Zenoss'
+    graphiteRoot = '/opt/graphite/storage/rrd/Zenoss'
 
 Add regexes that match the hostnames of the devices whose metrics you wish to symlink to:
 
