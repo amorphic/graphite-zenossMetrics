@@ -7,7 +7,7 @@ Zenoss is a unified monitoring solution, available in Enterprise and Open Source
 
 Graphite natively supports rrd. By symlinking to Zenoss rrd files from a Graphite server, Graphite's powerful visualisation, analytics and dashboarding may be applied to Zenoss metrics for free.
 
-*Note: graphite-zenossMetrics is currently designed to symlink metrics for Linux servers. However adding Windows, Network and other devices would be trivial.*
+*Note: graphite-zenossMetrics is currently designed to symlink metrics for Linux servers and network devices. However, adding Windows and other devices would be trivial.*
 
 Requirements
 ----------------------
@@ -29,14 +29,24 @@ Set zenossRoot to the location of the Zenoss performance data NFS mount:
 Set graphiteRoot to the location under which the Zenoss metrics will be symlinked:
 
     # root path of Zenoss metrics
-    graphiteRoot = '/opt/grahite/storage/rrd/Zenoss/Linux'
+    graphiteRoot = '/opt/grahite/storage/rrd/Zenoss'
 
-Add regexes that match the hostnames of the Linux devices whose metrics you wish to symlink to:
+Add regexes that match the hostnames of the devices whose metrics you wish to symlink to:
 
-    # regexes to match Zenoss Linux server device names
+    # regexes to match Zenoss device names
     devicePatterns = [
         '.*'
     ]
+    
+Enable/Disable logging of symlink creation and device cleanup
+    
+    # log symlink creation and deleted device cleanup to stdout
+    logging = False
+    
+Enable/Disable device cleanup for devices that have been deleted from Zenoss
+
+    # delete old devices from graphiteRoot
+    deleteOld = True
 
 Usage
 ----------------------
