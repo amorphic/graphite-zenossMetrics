@@ -34,12 +34,22 @@ metricMapDeviceRoot = {
 }
 
 # map of Graphite interface metrics to Zenoss metric RRD files
-metricMapInterfaces = {
-    'inputoctets.rrd'  :   'ifHCInOctets_ifHCInOctets.rrd',
-    'inputpackets.rrd' :   'ifHCInUcastPkts_ifHCInUcastPkts.rrd',
-    'inputerrors.rrd'  :   'ifInErrors_ifInErrors.rrd',
-    'outputoctets.rrd' :   'ifHCOutOctets_ifHCOutOctets.rrd',
-    'outputpackets.rrd':   'ifHCOutUcastPkts_ifHCOutUcastPkts.rrd',
-    'outputerrors.rrd' :   'ifOutErrors_ifOutErrors.rrd'
+metricMapOSComponents = {
+    'interfaces'  : {
+        'inputoctets.rrd'  :   'ifHCInOctets_ifHCInOctets.rrd',
+        'inputpackets.rrd' :   'ifHCInUcastPkts_ifHCInUcastPkts.rrd',
+        'inputerrors.rrd'  :   'ifInErrors_ifInErrors.rrd',
+        'outputoctets.rrd' :   'ifHCOutOctets_ifHCOutOctets.rrd',
+        'outputpackets.rrd':   'ifHCOutUcastPkts_ifHCOutUcastPkts.rrd',
+        'outputerrors.rrd' :   'ifOutErrors_ifOutErrors.rrd'
+    },
+    'filesystems' : {
+        'usedblocks.rrd'   :   'usedBlocks_usedBlocks.rrd'
+    },
+    'processes'   : {
+        'processcount.rrd' :   'count_count.rrd',
+        'cpuutil.rrd'      :   'cpu_cpu.rrd',
+        'memoryused.rrd'   :   'mem_mem.rrd'
+    }
 }
 

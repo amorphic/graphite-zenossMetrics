@@ -60,25 +60,27 @@ def main():
                             os.symlink(symlinkTarget, symlinkName)
                         except OSError, err:
                             log.info(err)
-            # interface symlinks
-            if os.path.exists(os.path.join(zenossDevicePath, 'os', 'interfaces')):
-                if not os.path.exists(os.path.join(graphiteDevicePath, 'interfaces')):
-                    os.mkdir(os.path.join(graphiteDevicePath, 'interfaces'))
-                zenossDeviceInterfaces = os.listdir(os.path.join(zenossDevicePath, 'os', 'interfaces'))
-                for interface in zenossDeviceInterfaces:
-                    if not os.path.exists(os.path.join(graphiteDevicePath, 'interfaces', sanitizePath(interface))):
-                        os.mkdir(os.path.join(graphiteDevicePath, 'interfaces', sanitizePath(interface)))
-                    for metric, zenossRrd in config.metricMapInterfaces.iteritems():
-                        if os.path.exists(os.path.join(zenossDevicePath, 'os', 'interfaces', interface, zenossRrd)):
-                            symlinkName = os.path.join(graphiteDevicePath, 'interfaces', sanitizePath(interface), metric)
-                            symlinkTarget = os.path.join(zenossDevicePath, 'os', 'interfaces', interface, zenossRrd)
-                            if not os.path.exists(symlinkName):
-                                if config.logging:
-                                    log.info('creating symlink %s -> %s' % (symlinkName, symlinkTarget))
-                                try:
-                                    os.symlink(symlinkTarget, symlinkName)
-                                except OSError, err:
-                                    log.info(err)
+            # OS Component symlinks
+            for OSComponentGroup, metrics in config.metricMapOSComponents.iteritems():
+                if os.path.exists(os.path.join(zenossDevicePath, 'os', OSComponentGroup)):
+                    if not os.path.exists(os.path.join(graphiteDevicePath, OSComponentGroup)):
+                        os.mkdir(os.path.join(graphiteDevicePath, OSComponentGroup))
+                    components = os.listdir(os.path.join(zenossDevicePath, 'os', OSComponentGroup))
+                    for component in components:
+                        if not os.path.exists(os.path.join(graphiteDevicePath, OSComponentGroup, sanitizePath(component))):
+                            os.mkdir(os.path.join(graphiteDevicePath, OSComponentGroup, sanitizePath(component)))
+                        for metric, zenossRrd in metrics.iteritems():
+                            if os.path.exists(os.path.join(zenossDevicePath, 'os', OSComponentGroup, component, zenossRrd)):
+                                symlinkName = os.path.join(graphiteDevicePath, OSComponentGroup, sanitizePath(component), metric)
+                                symlinkTarget = os.path.join(zenossDevicePath, 'os', OSComponentGroup, component, zenossRrd)
+                                if not os.path.exists(symlinkName):
+                                    if config.logging:
+                                        log.info('creating symlink %s -> %s' % (symlinkName, symlinkTarget))
+                                    try:
+                                        os.symlink(symlinkTarget, symlinkName)
+                                    except OSError, err:
+                                        log.info(err)
+
 
     # delete devices no longer in zenoss
     if config.deleteOld:
